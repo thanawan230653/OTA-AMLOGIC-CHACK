@@ -1,0 +1,5 @@
+skwamx3
+echo off
+python ota_try_get_link.py --build-prop D:\build.prop --probe-py .\probe.py
+pause
+exit

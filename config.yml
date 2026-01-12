@@ -1,0 +1,11 @@
+# Configure this correctly. Otherwise, the prober will not succeed in getting OTA URLs!
+# All Android fingerprints follow the following format:
+#   <oem>/<product>/<device>:<android_version>/<build_tag>/<incremental>:user/release-keys
+
+oem: "Truevisions"
+product: "HP4202-Truevisions"
+device: "HP42F"
+android_version: "10"
+build_tag: "QTT5.200819.003"
+incremental: "Q1.0_20250826"
+model: "SKWAMX3"
