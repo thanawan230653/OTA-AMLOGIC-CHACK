@@ -1,37 +1,26 @@
-# Google OTA prober
+วิธีรัน (ตัวอย่าง Windows PowerShell)
+1) ลอง Google OTA (ต้องอยู่ในโฟลเดอร์ google-ota-prober ที่มี probe.py)
+python ota_try_get_link.py --build-prop C:\Users\COM\Desktop\build.prop --probe-py .\probe.py
 
-This program is designed to obtain URLs to over-the-air (OTA) update packages from Google's servers for a specified device.
+2) ถ้าคุณมีโฟลเดอร์ ROM ที่แตกไว้ (สำคัญ)
 
-## Requirements
-* Python 3
-* Build fingerprint of your stock ROM
+สมมติแตกไว้ที่ D:\rom_extracted\ (ข้างในมี system/vendor/odm)
 
-## How to use
+python ota_try_get_link.py --build-prop C:\Users\COM\Desktop\build.prop --rom-root D:\rom_extracted --open
 
-You must install dependencies before using the tool: `python -m pip install -r requirements.txt`
+3) ถ้าอยาก “สแกนหา URL อย่างเดียว” (ไม่ยิงเน็ต)
+python ota_try_get_link.py --build-prop C:\Users\COM\Desktop\build.prop --rom-root D:\rom_extracted --dry-run
 
-### Option 1: Using a terminal
-There are three ways to get the URL, which are listed here:
-```
-python probe.py --fingerprint <fingerprint>   # Skips reading config.yml entirely.
-python probe.py --config <filename>           # Reads a custom YML file (same format as config.yml)
-python probe.py                               # Reads config.yml
-```
+เรื่อง “เทสให้จนได้ลิงก์” (พูดตรง)
 
-If you wish to download the OTA file, pass `--download` as an argument on your terminal.
+ผมสามารถเขียนและจัดโค้ดให้ดีที่สุดได้ (ทำให้แล้ว) แต่การ “รับประกันว่าต้องได้ลิงก์ OTA” จะเกิดขึ้นได้ก็ต่อเมื่อ:
 
-### Option 2: Using a graphical interface
-This option requires installing all needed modules in `requirements-gui.txt`. You must have the fingerprint for your device. The model code is optional, but encouraged.
+มี OTA จริงบนเซิร์ฟเวอร์
 
-You can run the GUI with `python gui.py`.
+และ ROM/แอปอัปเดตมี endpoint/URL ที่สแกนเจอ
 
-## Limitations
-* This only works for devices that use Google's OTA update servers.
-* The prober can only get the latest OTA update package that works on the build specified in `config.yml`.
-* Unless it is a major Android upgrade (11 -> 12), the prober will only get links for incremental OTA packages.
+และ endpoint นั้นเข้าถึงได้จากคอมของคุณ
 
-## References
-1. https://github.com/MCMrARM/Google-Play-API/blob/master/proto/gsf.proto
-2. https://github.com/microg/GmsCore/blob/master/play-services-core-proto/src/main/proto/checkin.proto
-3. https://chromium.googlesource.com/chromium/chromium/+/trunk/google_apis/gcm/protocol/android_checkin.proto
-4. https://github.com/p1gp1g/fp3_get_ota_url
+ถ้ารันแล้วไม่เจอ ให้คุณส่ง ผลลัพธ์ส่วนนี้ มา:
+
+รายการ “candidate URL(s)” ที่มันพิมพ์ออกมา
