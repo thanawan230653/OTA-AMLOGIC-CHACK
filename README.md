@@ -19,6 +19,12 @@ python ota_try_get_link.py --build-prop C:\Users\COM\Desktop\build.prop --rom-ro
 
 และ ROM/แอปอัปเดตมี endpoint/URL ที่สแกนเจอ
 
+วิธีรันอีกวิธี
+
+python probe.py --fingerprint Nokia/SEI600NK/HND:10/QTT8.201201.002/1801:user/release-keys
+Update title: New SW version is available
+OTA URL obtained: https://android.googleapis.com/packages/ota-api/package/52782c0413cdea4d36ebb591b31409cbac8b4b2a.zip
+
 และ endpoint นั้นเข้าถึงได้จากคอมของคุณ
 
 ถ้ารันแล้วไม่เจอ ให้คุณส่ง ผลลัพธ์ส่วนนี้ มา:
